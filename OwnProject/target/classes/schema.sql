@@ -1,0 +1,13 @@
+CREATE TABLE department (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE employee (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100) NOT NULL,
+salary DOUBLE,
+department_id INT,
+CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)
+);

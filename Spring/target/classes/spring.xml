@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+
+
+
+<!-- 	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor" autowire="constructor" init-method="init" destroy-method="destroy"> -->
+<!-- 		<property name="spellChecker" ref="spellChecker1" /> -->
+<!-- 		<constructor-arg ref="spellChecker1"></constructor-arg> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="textEditor" class="com.ibm.spring.beans.TextEditor" -->
+<!-- 	autowire="byType" lazy-init="true"> -->
+<!-- 	</bean> -->
+
+	<!-- creating a bean for spellChecker -->
+	<!-- <bean id="spellChecker1" class="com.ibm.spring.beans.SpellChecker" -->
+	<!-- scope="singleton"> -->
+	<!-- <property name="id" value="1"></property> -->
+	<!-- </bean> -->
+
+	<!-- for understanding the usage of Beanconfig class instad of creating 
+		beans here -->
+	<context:annotation-config />
+
+	<!-- for understanding of @component annotation -->
+	<context:component-scan
+		base-package="com.ibm.spring.beans,
+		com.ibm.spring.services"></context:component-scan>
+
+	<!-- for understanding qualifier annotation -->
+	<!-- <bean id="textEditor" class="com.ibm.spring.beans.TextEditor"> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="spellChecker1" class="com.ibm.spring.beans.SpellChecker"> -->
+	<!-- <property name="id" value="1"></property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="spellChecker2" class="com.ibm.spring.beans.SpellChecker"> -->
+	<!-- <property name="id" value="2"></property> -->
+	<!-- </bean> -->
+
+	<!-- creating a inner bean and outer bean so inner bean is not accessible 
+		to other but only to outer -->
+	<!-- <bean id="textEditor" class="com.ibm.spring.beans.TextEditor"> -->
+	<!-- <property name="spellChecker"> -->
+	<!-- <bean id="spellChecker1" -->
+	<!-- class="com.ibm.spring.beans.SpellChecker" scope="singleton"> -->
+	<!-- <property name="id" value="1"></property> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+
+	<bean id="javaCollection"
+		class="com.ibm.spring.beans.JavaCollection">
+		<property name="addressList">
+			<list>
+				<value>INDIA</value>
+				<value>CHINA</value>
+				<value>USA</value>
+				<value>USA</value>
+			</list>
+		</property>
+
+		<property name="addressSet">
+			<set>
+				<value>INDIA</value>
+				<value>CHINA</value>
+				<value>USA</value>
+				<value>USA</value>
+			</set>
+		</property>
+
+		<property name="addressMap">
+			<map>
+				<entry key="1" value="INDIA"></entry>
+				<entry key="2" value="CHINA"></entry>
+				<entry key="3" value="USA"></entry>
+				<entry key="4" value="USA"></entry>
+			</map>
+		</property>
+
+		<property name="addressProp">
+			<props>
+				<prop key="1"> INDIA</prop>
+				<prop key="2"> CHINA</prop>
+				<prop key="3"> USA</prop>
+				<prop key="4"> USA</prop>
+			</props>
+		</property>
+
+	</bean>
+
+</beans>
